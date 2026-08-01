@@ -1,52 +1,43 @@
 # PROJECT_STATE
 
-Última actualización: 2026-07-31
-Sprint activo: SPRINT 001
+Última actualización: 2026-08-01
+Sprint activo: SPRINT 002
 Estado general: Execution Mode
 
 ## Fase
 
 - Architecture & Governance: **Cerrada** (Resolución AR-2026-07-31-001)
-- Execution: **En curso** (SPRINT 001)
+- Execution: **En curso** (SPRINT 002)
 
-## Sprint 001 — Infraestructura mínima reproducible
+## Sprint 002 — Gobernanza y Constitución
 
 ### Objetivo
-Inicializar HEREDITARIA-OS con la infraestructura mínima reproducible
-y versionable, compatible con Android 14/15 + Termux.
+Materializar deuda técnica de gobernanza detectada en Sprint 001 y
+establecer HER-000 Constitución del Proyecto.
+
+### Alcance aprobado (Opción A)
+- [x] Materializar ISSUE-001: Resolución AR-2026-07-31-001
+- [x] Resolver ISSUE-002: HER-STD-0003 Convenciones Git (`main` como rama principal)
+- [x] HER-000 Constitución del Proyecto (v1.0.0-draft)
+- [x] Registro de decisiones inicial (`governance/decisions.md`)
+- [x] Actualizar issues de Sprint 001 y 002
 
 ### Artefactos entregados
-- [x] README.md
-- [x] PROJECT_STATE.md
-- [x] CHANGELOG.md
-- [x] VERSION
-- [x] LICENSE
-- [x] .gitignore
-- [x] install.sh
-- [x] termux_setup.sh
-- [x] requirements.txt
-- [x] knowledge/README.md
-- [x] scripts/update.sh
+- `governance/resolutions/AR-2026-07-31-001.md`
+- `governance/std/HER-STD-0003.md`
+- `governance/constitution.md`
+- `governance/decisions.md`
+- `governance/issues/SPRINT-001.md` (actualizado)
+- `governance/issues/SPRINT-002.md` (actualizado)
 
 ### Criterios de éxito
-- [x] Archivos base existen
-- [x] Estructura de directorios creada
-- [ ] Proyecto clonado y verificado desde GitHub (validado por `unzip` local; pendiente `git clone` real desde remoto tras `git push`)
-- [x] Inicializado desde Android + Termux — validado en dispositivo real, 2026-08-01 (ver `logs/SPRINT-001-validation.log`)
-- [x] Estado registrado en este archivo
-- [x] Validación del sprint sin inconsistencias — `git init`, `git add .`, `git commit` (53e141e, 21 archivos), `termux_setup.sh` e `install.sh` ejecutados sin errores
+- [ ] Todos los archivos commiteados en `main`
+- [ ] Push a GitHub exitoso
+- [ ] Validación de estructura en repositorio remoto
 
-### Evidencia de validación (2026-08-01, Termux real)
-- Commit inicial: `53e141e`, 21 archivos, rama `master`.
-- `termux_setup.sh`: git 2.54.0, python 3.13.13 — sin instalaciones nuevas (paquetes ya presentes).
-- `install.sh`: entorno virtual creado en `.venv`, pip actualizado, `requirements.txt` procesado sin dependencias.
-- Log completo: `logs/SPRINT-001-validation.log`.
-
-### Pendiente para cerrar el criterio de GitHub
-- Crear repositorio remoto.
-- `git remote add origin <URL>`
-- `git push -u origin master` (o renombrar a `main` antes del push, ver aviso de Git más abajo).
-- Validar `git clone` desde el remoto en un directorio limpio.
+### Pendiente para cerrar Sprint 002
+- Commit y push de artefactos
+- Validación web en GitHub
 
 ## Documentos de gobierno vigentes
 
@@ -55,36 +46,13 @@ y versionable, compatible con Android 14/15 + Termux.
 | HER-001 — Manifiesto | Aprobado |
 | HER-RFC-001 — WhatsApp First Architecture | Aprobado (Draft v0.1) |
 | HER-ADR-0000 — Repository as Product | Aprobado (v1.1) |
-| HER-STD-0001 — Repository Contract | Aprobado (v1.0, 10 criterios) |
+| HER-STD-0001 — Repository Contract | Aprobado (v1.0) |
 | HER-STD-0002 — Sprint Freeze Rule | Aprobado |
-| HER-000 — Constitución del Proyecto | Pendiente (reevaluar tras Sprint 003) |
+| HER-STD-0003 — Convenciones Git | Aprobado (v1.0.0) |
+| HER-000 — Constitución del Proyecto | Aprobado (v1.0.0-draft, reevaluar tras Sprint 003) |
+| AR-2026-07-31-001 | Aprobada y materializada |
 | Bootstrap Prompt | v1.0 |
-
-## Supuestos no verificados
-
-Registrados por restricción de HER-STD-0001 y el Bootstrap Prompt v1.0.
-Ninguno de estos supuestos debe tratarse como hecho de arquitectura
-hasta ser validado en entorno real.
-
-- WAHA puede operar de forma continua sobre Termux en un dispositivo
-  Android sin verse afectado por Doze mode / gestión de batería.
-- GitHub Actions en repositorio privado se mantiene dentro de límites
-  de minutos gratuitos del Free Tier para el volumen esperado.
-- Netlify Functions (Free Tier) es suficiente para necesidades futuras
-  de lógica server-side (ej. webhook WAHA), aún no confirmado.
-- Termux permite instalar todas las dependencias de `requirements.txt`
-  sin requerir compilación nativa adicional (a validar según crezca
-  la lista de dependencias).
-
-## Pendientes registrados como Issue
-
-- ISSUE-001 (`governance/issues/SPRINT-001.md`): materializar la
-  Resolución AR-2026-07-31-001 en `governance/resolutions/` y
-  `governance/architecture.md` / `governance/decisions.md`. No estaba
-  en el alcance explícito de los 11 archivos del Sprint 001; se
-  registra en lugar de expandir el alcance del sprint en curso.
 
 ## Próximo sprint
 
-SPRINT 002 — a definir. No debe iniciarse hasta cerrar validación de
-SPRINT 001 (clonado real + Termux real).
+SPRINT 003 — a definir por el responsable del proyecto.
