@@ -30,11 +30,21 @@ distintos. El Blueprint define el modelo de entidades y relaciones
 del patrimonio familiar. `ONTOLOGIA.md` es un corpus de gobernanza de
 marca y contenido para un nodo "Curador" que valida material
 publicable. No se detecta contradicción directa con la arquitectura
-aprobada, pero sí se detectan tres preguntas abiertas no triviales
-que deben resolverse antes de construir Sprint 002 sobre supuestos
-implícitos.
+aprobada.
 
-No se declara compatibilidad total (PASS). Se declara **WARNING**.
+**Actualización 2026-08-01:** el Hallazgo 3 (arquitectura de runtime)
+queda resuelto por confirmación directa: Curador/Generador pertenecen
+a un proyecto anterior no relacionado. Esto descarta el riesgo de
+"deuda de coherencia por sistemas paralelos no reconciliados", pero
+introduce una pregunta distinta y más concreta: ¿la sección 7 de
+`ONTOLOGIA.md` (protocolo del Curador) debe corregirse, eliminarse o
+reimplementarse sobre el Motor HEREDITARIA™ OS? Ver Hallazgo 3 y
+ISSUE-003 actualizados.
+
+Se mantiene **WARNING**, no PASS, hasta que esa pregunta se
+resuelva — ya no por riesgo de arquitectura paralela, sino porque un
+documento de gobierno vigente contiene una sección operativa que
+depende de infraestructura ajena al proyecto.
 
 ---
 
@@ -82,14 +92,39 @@ no presentes en ningún documento aprobado: el programa "Patrimonio
 Vivo" y la voz narrativa/personaje "Don Severo Villanueva". Ninguno
 de los dos está registrado en `02_Glosario_Taxonomia_v1.0.md`.
 
-## Hallazgo 3 — Arquitectura de runtime no reconciliada
+## Hallazgo 3 — Arquitectura de runtime no reconciliada (RESUELTO 2026-08-01)
 `ONTOLOGIA.md` referencia `RUNTIME_MASTER_PROMPT_v2` y nodos
 "Curador" y "Generador". HER-RFC-001 define un orquestador distinto
 ("Motor HEREDITARIA™ OS") con módulos Observatorio / Biblioteca /
-Boutique / Expediente, sin mencionar Curador ni Generador. **No hay
-evidencia suficiente para determinar** si son el mismo sistema con
-nombres distintos, sistemas paralelos legítimos, o una versión
-anterior no reconciliada. Requiere aclaración directa, no inferencia.
+Boutique / Expediente, sin mencionar Curador ni Generador.
+
+**Confirmación directa (2026-08-01):** el responsable del proyecto
+confirma que `RUNTIME_MASTER_PROMPT` (solo existe v1 en disco, ver
+Addendum de Hallazgo 3.1) y los nodos Curador/Generador pertenecen a
+**un proyecto anterior y no relacionado con HEREDITARIA™**. No son
+arquitectura paralela de HEREDITARIA™ ni una versión previa del
+Motor HEREDITARIA™ OS — son de otro proyecto.
+
+**Consecuencia no trivial:** `ONTOLOGIA.md` §7 ("Protocolo de
+validación del Curador"), documento de gobierno vigente para
+HEREDITARIA™, depende operativamente de infraestructura de ese
+proyecto ajeno. Esto no es solo una referencia obsoleta — es una
+sección completa de un documento de gobierno actualmente activo que
+apunta a un runtime que no pertenece a HEREDITARIA™. Queda abierta
+la pregunta de si el *concepto* de Curador (validación de contenido
+contra HARD_CANON/SOFT_CANON/etc.) se conserva y se reimplementa
+sobre el Motor HEREDITARIA™ OS, o si toda la sección 7 es también
+vestigial. Ver ISSUE-003 actualizado.
+
+### Addendum — Hallazgo 3.1
+Búsqueda exhaustiva en el dispositivo (`find ~ -iname
+"*runtime_master_prompt*"`) confirma que **no existe ningún archivo
+v2** — solo dos copias de `RUNTIME_MASTER_PROMPT_v1.md` idénticas en
+nombre, ambas en el repositorio ya existente
+`~/runtime-master-prompt` (git, remoto
+`https://github.com/dggamino/runtime-master-prompt`, rama `main`).
+La referencia a "v2" en `ONTOLOGIA.md` no corresponde a ningún
+artefacto real localizable.
 
 ## Hallazgo 4 — Alcance legal más específico de lo declarado (ACTUALIZADO 2026-08-01)
 La sección 1.6 fija como fundamento legal el Decreto 87 (Estado de

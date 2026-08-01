@@ -22,6 +22,23 @@ Sprint 002 dependa de esta arquitectura.
 
 **Resolver en:** Antes de cerrar Sprint 002, o al inicio del mismo.
 
+**Estado (2026-08-01): RESUELTO por confirmación directa.** El
+responsable del proyecto confirma que `RUNTIME_MASTER_PROMPT` (solo
+existe v1 en disco; sin v2 localizable en el dispositivo) y los
+nodos Curador/Generador pertenecen a un proyecto anterior, no
+relacionado con HEREDITARIA™. No hay arquitectura paralela ni
+sistema no reconciliado dentro de HEREDITARIA™ — Motor HEREDITARIA™
+OS (RFC-001) sigue siendo el único orquestador vigente.
+
+**Nuevo seguimiento (no es continuación de ISSUE-003, es hallazgo
+derivado):** `ONTOLOGIA.md` §7 ("Protocolo de validación del
+Curador") depende operativamente de esa infraestructura ajena.
+Pendiente de decisión del responsable: (a) el concepto de Curador se
+reimplementa sobre Motor HEREDITARIA™ OS, (b) la sección se marca
+como DEPRECATED/vestigial y se elimina, o (c) se deja documentado
+como trabajo futuro sin fecha. Registrar como ISSUE-005 cuando se
+tome la decisión.
+
 ---
 
 ## ISSUE-004
