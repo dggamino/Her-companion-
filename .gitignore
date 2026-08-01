@@ -1,0 +1,60 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Entornos y secretos ---
+.env
+.env.*
+*.key
+*.pem
+secrets/
+credentials/
+
+# --- Termux / Android ---
+.termux/
+*.apk
+*.aab
+
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editores ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Logs y runtime ---
+logs/*.log
+runtime/*.pid
+runtime/*.sock
+
+# --- Datos sensibles (HER-STD-0001, Criterio 9) ---
+knowledge/private/
+knowledge/expedientes/
+*.expediente
+*.pdf.private
+
+# --- Node (Netlify / WAHA tooling) ---
+node_modules/
+.netlify/
+
+# --- Archivos temporales ---
+*.tmp
+*.bak
+*.orig

@@ -1,0 +1,8 @@
+# HEREDITARIA-OS — requirements.txt
+# Sprint 001: sin dependencias todavía. Placeholder intencional.
+# Añadir dependencias aquí conforme se implementen módulos
+# (Observatorio, Expediente, integraciones WAHA, etc.).
+#
+# Restricción vigente (HER-STD-0001 / Bootstrap Prompt v1.0):
+# toda dependencia debe ser instalable en Termux sin asumir
+# compilación nativa compleja no verificada.
