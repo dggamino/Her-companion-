@@ -1,12 +1,19 @@
 # Issues Sprint 007
 
-## ISSUE-013 — ABIERTO
+## ISSUE-013 — RESUELTO
 
 **Tipo:** INF
-**Descripción:** Activar job `python-placeholder` con tests reales cuando
-`packages/her-models/` y código Python sean agregados.
-**Prioridad:** Media
-**Resolver en:** Sprint 007+
+**Descripción:** Activar job `python-placeholder` con tests reales.
+**Resolución:**
+- Creado `pyproject.toml` con metadatos del proyecto y configuración de herramientas
+- Creado `packages/her_models/` con modelo `Expediente` (dataclass frozen)
+- Creado `tests/test_her_models.py` con 5 tests unitarios
+- Reemplazado job `python-placeholder` por `python` en CI:
+  - `ruff check` + `ruff format --check`
+  - `mypy packages/`
+  - `pytest -v`
+- Añadido `HER-STD-0006.md` a lista de validación de gobernanza
+- Creado `requirements-dev.txt` para compatibilidad Termux
 
 ## ISSUE-005 — ABIERTO
 

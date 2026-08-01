@@ -26,12 +26,15 @@ jobs:
             governance/std/HER-STD-0003.md \
             governance/std/HER-STD-0004.md \
             governance/std/HER-STD-0005.md \
+            governance/std/HER-STD-0006.md \
             governance/resolutions/AR-2026-07-31-001.md \
             governance/issues/SPRINT-001.md \
             governance/issues/SPRINT-002.md \
             governance/issues/SPRINT-003.md \
             governance/issues/SPRINT-004.md \
-            governance/issues/SPRINT-005.md
+            governance/issues/SPRINT-005.md \
+            governance/issues/SPRINT-006.md \
+            governance/issues/SPRINT-007.md
           do
             if [ -f "$file" ]; then
               echo "  ✅ $file"
@@ -57,7 +60,6 @@ jobs:
       - name: Check for broken internal links
         run: |
           echo "=== Checking internal references ==="
-          # Issues document historical problems; exclude them from link checks
           grep -r "HER-ADR-007\|HER-ADR-009" \
             governance/adr/ \
             governance/rfc/ \
@@ -68,7 +70,7 @@ jobs:
             governance/decisions.md \
             && exit 1 || echo "  ✅ No references to non-existent ADRs in active documents"
 
-  python-placeholder:
+  python:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,9 +78,20 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies (placeholder)
+      - name: Install dependencies
         run: |
-          echo "=== Python environment ready ==="
-          echo "  Python version: $(python --version)"
-          echo "  Placeholder for future: pytest, mypy, ruff"
-          echo "  Activate when her-models/ her-core/ are added"
+          pip install -e ".[dev]"
+          pip install "mypy>=1.8" "ruff>=0.4"
+
+      - name: Lint with ruff
+        run: |
+          ruff check packages/ tests/
+          ruff format --check packages/ tests/
+
+      - name: Type check with mypy
+        run: |
+          mypy packages/
+
+      - name: Test with pytest
+        run: |
+          pytest -v

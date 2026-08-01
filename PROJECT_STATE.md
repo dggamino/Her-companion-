@@ -28,12 +28,25 @@ Establecer validación continua del repositorio.
 - [x] Commit y push a main
 - [x] CI verde en GitHub Actions
 
-## Sprint 007 — a definir por el responsable
+## Sprint 007 — Activación de Python
 
-### Recomendado
-- Primer sprint de código Python (`packages/her-models/`, `her-core/`)
-- Resolver ISSUE-013: activar `python-placeholder` con tests reales
-- Avanzar ISSUE-005 (ADR DB) o ISSUE-006 (RFC API) si hay contexto
+### Objetivo
+Bootstrap del primer código Python con validación de calidad.
+
+### Alcance
+- [x] ISSUE-013: Activar python-placeholder con tests reales
+- [ ] ISSUE-005: Decisión ADR migración DB (contexto pendiente)
+- [ ] ISSUE-006: Decisión RFC API framework (contexto pendiente)
+
+### Artefactos
+- `pyproject.toml`
+- `packages/her_models/` (modelo Expediente)
+- `tests/test_her_models.py` (5 tests)
+- `requirements-dev.txt`
+
+### Criterios de éxito
+- [ ] CI verde con job `python` (ruff, mypy, pytest)
+- [ ] Tests pasan localmente
 
 ## Documentos vigentes (15)
 
@@ -55,10 +68,9 @@ Establecer validación continua del repositorio.
 
 - ISSUE-005: Decisión migración DB (Sprint 006+)
 - ISSUE-006: Decisión API framework (Sprint 008+)
-- ISSUE-013: Activar python-placeholder con tests reales (Sprint 007+)
 - ISSUE-015: Desalineación DRY CI/local (Sprint 008+)
 
 ## Próximo sprint
 
-SPRINT 007 — primer sprint de código o continuación de infraestructura.
-Requiere HER-STD-0005 (Ready) y HER-STD-0006 (Done) vigentes.
+SPRINT 008 — a definir por el responsable.
+Recomendado: Resolver ISSUE-005 (ADR DB) o ISSUE-006 (RFC API) con contexto de implementación.
