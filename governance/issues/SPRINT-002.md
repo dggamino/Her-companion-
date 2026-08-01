@@ -43,5 +43,20 @@ en toda la documentación ya aprobada.
 
 **Prioridad:** Media
 
+**Estado (2026-08-01):** Verificación legal completada. Se confirmó
+contra el documento oficial (Gaceta del Gobierno del Estado de
+México, Decreto 87, 7 de mayo de 2013) que la cita de `ONTOLOGIA.md`
+§1.6 es exacta: artículos 7.1144 Bis a 7.1144 Undecies del Código
+Civil del Estado de México, vigencia julio 2013, y la autorización a
+instituciones privadas/sociales/personas físicas/públicas del Art.
+7.1144 Quater coincide casi textualmente con el decreto. No hay error
+ni invención en la fuente legal.
+
+**Pendiente:** la pregunta de alcance de producto sigue abierta —
+¿es la hipoteca inversa EdoMex el producto real vigente, o uno de
+varios casos de uso dentro de un alcance nacional? Es una decisión
+estratégica, no legal; no se resuelve con la verificación del
+documento.
+
 **Resolver en:** Sprint 002, antes de construir contenido o
 automatización específica de producto.

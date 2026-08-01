@@ -91,12 +91,24 @@ evidencia suficiente para determinar** si son el mismo sistema con
 nombres distintos, sistemas paralelos legítimos, o una versión
 anterior no reconciliada. Requiere aclaración directa, no inferencia.
 
-## Hallazgo 4 — Alcance legal más específico de lo declarado
+## Hallazgo 4 — Alcance legal más específico de lo declarado (ACTUALIZADO 2026-08-01)
 La sección 1.6 fija como fundamento legal el Decreto 87 (Estado de
-México), específico para hipoteca inversa. HER-001 y HER-RFC-001
-describen el alcance en términos nacionales y multi-ruta. No es una
-contradicción explícita, pero sí una posible discrepancia de alcance
-entre la visión declarada y el producto legal/operativo real.
+México), específico para hipoteca inversa. **Verificado contra el
+texto íntegro de la Gaceta del Gobierno del Estado de México (7 de
+mayo de 2013):** la cita es exacta — número de decreto, fecha de
+publicación, vigencia (60 días después, Art. Tercero Transitorio) y
+artículos 7.1144 Bis a Undecies del Código Civil del Estado de
+México, incluyendo la redacción literal del Art. 7.1144 Quater sobre
+quién puede otorgar la hipoteca inversa. **No es una cita inventada
+ni mal transcrita.**
+
+Lo que permanece sin resolver es distinto: si la hipoteca inversa en
+Estado de México es el producto comercial real y vigente de
+HEREDITARIA™, o uno de varios casos de uso previstos dentro del
+alcance nacional multi-ruta que describen HER-001 y HER-RFC-001. Esa
+es una pregunta de alcance de negocio, no de exactitud legal, y
+ningún documento fuente disponible la responde — requiere
+confirmación directa del responsable del proyecto.
 
 ## Hallazgo 5 — Vocabulario de marca sin integrar al Glosario
 Los términos de la sección 1.3 (Activo dormido/muerto/vivo,
@@ -182,8 +194,20 @@ contenido no visto.
 - Cerrar PRE-SPRINT AUDIT 001 con resolución WARNING (no PASS).
 - Registrar seguimiento en `governance/issues/SPRINT-002.md`:
   reconciliación de runtime (Curador/Generador vs. Motor HEREDITARIA™
-  OS) y confirmación de alcance legal (hipoteca inversa EdoMex).
+  OS) y confirmación de alcance de negocio (hipoteca inversa EdoMex
+  como producto único vigente vs. uno de varios casos de uso).
 - SPRINT 002 puede iniciar, pero no debe asumir que ambos runtimes
   son el mismo sistema hasta confirmación explícita.
 - No fusionar `ONTOLOGIA.md` con el Blueprint; mantener separados por
   dominio (entidades vs. gobernanza de contenido).
+
+## Addendum — 2026-08-01
+
+Se verificó el texto íntegro de la Gaceta del Gobierno del Estado de
+México (Decreto 87, 7 de mayo de 2013) contra la cita de
+`ONTOLOGIA.md` §1.6. **Resultado: cita legal exacta y verificable.**
+Esto no cambia la resolución general (WARNING se mantiene, por el
+Hallazgo 3 sin resolver), pero cierra la dimensión de "exactitud de
+la cita legal" dentro del Hallazgo 4. La dimensión de "alcance de
+negocio" (¿es este el producto único vigente?) permanece abierta y
+no se resuelve con este documento.
