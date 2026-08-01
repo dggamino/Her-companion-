@@ -40,7 +40,11 @@ desktop.ini
 *.swo
 
 # --- Logs y runtime ---
+# Los logs operativos NO se versionan (ruido, rotación, tamaño).
+# Los logs de validación de Sprint SÍ se versionan: son evidencia
+# de Auditabilidad (HER-STD-0001, Criterio 10).
 logs/*.log
+!logs/*-validation.log
 runtime/*.pid
 runtime/*.sock
 

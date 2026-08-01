@@ -7,6 +7,14 @@ y [Versionado Semántico](https://semver.org/lang/es/).
 Este archivo es obligatorio por HER-STD-0001, Criterio 10 —
 Auditabilidad.
 
+## [Unreleased]
+
+### Fixed
+- `.gitignore` excluía `logs/*.log` sin excepción, impidiendo
+  versionar `logs/SPRINT-001-validation.log` pese a ser evidencia
+  requerida por HER-STD-0001, Criterio 10 (Auditabilidad). Se añadió
+  excepción `!logs/*-validation.log`.
+
 ## [0.1.0] — 2026-07-31
 
 ### Added
