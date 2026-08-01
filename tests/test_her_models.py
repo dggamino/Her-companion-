@@ -1,6 +1,6 @@
 """Tests para el paquete her_models."""
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from her_models.core import Expediente, crear_expediente
 
@@ -32,7 +32,7 @@ class TestExpediente:
         exp = Expediente(
             id="EXP-003",
             direccion="Plaza Mayor 1",
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
 
         assert exp.resumen() == "[EXP-003] Plaza Mayor 1"
@@ -42,7 +42,7 @@ class TestExpediente:
         exp = Expediente(
             id="EXP-004",
             direccion="Gran Vía 100",
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
             observaciones="Urgente",
         )
 

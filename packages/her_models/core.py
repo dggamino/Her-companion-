@@ -1,7 +1,7 @@
 """Core domain models for HEREDITARIA™ OS."""
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 
 @dataclass(frozen=True)
@@ -28,6 +28,6 @@ def crear_expediente(
     return Expediente(
         id=expediente_id,
         direccion=direccion,
-        created_at=datetime.now(timezone.utc),
+        created_at=datetime.now(UTC),
         observaciones=observaciones,
     )
