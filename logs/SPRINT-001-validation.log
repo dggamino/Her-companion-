@@ -1,0 +1,7 @@
+[2026-08-01T00:11:21Z] install.sh ejecutado en Termux (Android) - OK
+[2026-08-01T00:11:21Z] Entorno virtual creado en .venv - OK
+[2026-08-01T00:11:33Z] requirements.txt procesado (sin dependencias) - OK
+[2026-08-01T00:11:34Z] Estructura de directorios verificada - OK
+[2026-08-01T00:11:34Z] git init + commit inicial (53e141e) - OK, 21 archivos
+[2026-08-01T00:11:34Z] Rama por defecto: master (sin configurar init.defaultBranch)
+[2026-08-01T00:11:34Z] Origen: unzip local, no git clone desde GitHub - pendiente
