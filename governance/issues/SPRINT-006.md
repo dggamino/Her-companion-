@@ -18,9 +18,11 @@
 **Prioridad:** Media
 **Resolver en:** Sprint 007+
 
-## ISSUE-014 — ABIERTO
+## ISSUE-014 — RESUELTO
 
 **Tipo:** STD
 **Descripción:** Definir HER-STD-0006 — Definition of Done.
-**Prioridad:** Media
-**Resolver en:** Sprint 007 (antes de primer sprint de código)
+**Resolución:**
+- Materializado `governance/std/HER-STD-0006.md` v1.0.0
+- Alineado con HER-STD-0005 (Definition of Ready) y pipeline CI activo
+- Prerrequisito para primer sprint de código cumplido
