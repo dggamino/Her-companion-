@@ -57,7 +57,16 @@ jobs:
       - name: Check for broken internal links
         run: |
           echo "=== Checking internal references ==="
-          grep -r "HER-ADR-007\|HER-ADR-009" governance/ && exit 1 || echo "  ✅ No references to non-existent ADRs"
+          # Issues document historical problems; exclude them from link checks
+          grep -r "HER-ADR-007\|HER-ADR-009" \
+            governance/adr/ \
+            governance/rfc/ \
+            governance/std/ \
+            governance/resolutions/ \
+            governance/HER-001-Manifiesto.md \
+            governance/constitution.md \
+            governance/decisions.md \
+            && exit 1 || echo "  ✅ No references to non-existent ADRs in active documents"
 
   python-placeholder:
     runs-on: ubuntu-latest
