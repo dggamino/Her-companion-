@@ -1,7 +1,7 @@
 # HER-000 — Constitución del Proyecto HEREDITARIA™ OS
 
 ## Versión
-1.0.0
+1.0.1
 
 ## Estado
 Aprobado
@@ -22,8 +22,6 @@ principal, dentro del Free Tier de todas sus dependencias.
 | 4 | Free Tier únicamente | HER-RFC-001 |
 | 5 | Sprint Freeze Rule | HER-STD-0002 |
 | 6 | Auditabilidad | HER-STD-0001 |
-| 7 | Time Abstraction | HER-ADR-007 |
-| 8 | Open/Closed Rules | HER-ADR-009 |
 
 ## 3. Fases del proyecto
 
@@ -34,7 +32,7 @@ principal, dentro del Free Tier de todas sus dependencias.
 
 ## 4. Estructura de gobierno
 
-- `governance/manifesto.md` — HER-001
+- `governance/HER-001-Manifiesto.md` — HER-001
 - `governance/rfc/` — Requests for Comments
 - `governance/adr/` — Architecture Decision Records
 - `governance/std/` — Standards
@@ -49,10 +47,7 @@ Requiere:
 3. Aprobación explícita del responsable del proyecto
 4. Commit con referencia al issue
 
-## 6. Supuestos no verificados (registro obligatorio)
-
-Todo supuesto debe listarse aquí con su documento de origen.
-Ningún supuesto no listado puede usarse como base de decisión arquitectónica.
+## 6. Supuestos no verificados
 
 | # | Supuesto | Origen | Estado |
 |---|----------|--------|--------|
@@ -63,8 +58,10 @@ Ningún supuesto no listado puede usarse como base de decisión arquitectónica.
 
 ## Referencias
 - HER-001 — Manifiesto
+- HER-ADR-0000 — Repository as Product
 - HER-STD-0001 — Repository Contract
 - HER-STD-0002 — Sprint Freeze Rule
 - HER-STD-0003 — Convenciones Git
 - HER-STD-0004 — Context Snapshot Standard
+- HER-STD-0005 — Definition of Ready
 - AR-2026-07-31-001 — Cierre de fase Architecture & Governance
