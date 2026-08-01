@@ -31,10 +31,22 @@ y versionable, compatible con Android 14/15 + Termux.
 ### Criterios de éxito
 - [x] Archivos base existen
 - [x] Estructura de directorios creada
-- [ ] Proyecto clonado y verificado desde GitHub (pendiente de push real)
-- [ ] Inicializado desde Android + Termux (pendiente de validación en dispositivo)
+- [ ] Proyecto clonado y verificado desde GitHub (validado por `unzip` local; pendiente `git clone` real desde remoto tras `git push`)
+- [x] Inicializado desde Android + Termux — validado en dispositivo real, 2026-08-01 (ver `logs/SPRINT-001-validation.log`)
 - [x] Estado registrado en este archivo
-- [ ] Validación del sprint sin inconsistencias (pendiente de cierre)
+- [x] Validación del sprint sin inconsistencias — `git init`, `git add .`, `git commit` (53e141e, 21 archivos), `termux_setup.sh` e `install.sh` ejecutados sin errores
+
+### Evidencia de validación (2026-08-01, Termux real)
+- Commit inicial: `53e141e`, 21 archivos, rama `master`.
+- `termux_setup.sh`: git 2.54.0, python 3.13.13 — sin instalaciones nuevas (paquetes ya presentes).
+- `install.sh`: entorno virtual creado en `.venv`, pip actualizado, `requirements.txt` procesado sin dependencias.
+- Log completo: `logs/SPRINT-001-validation.log`.
+
+### Pendiente para cerrar el criterio de GitHub
+- Crear repositorio remoto.
+- `git remote add origin <URL>`
+- `git push -u origin master` (o renombrar a `main` antes del push, ver aviso de Git más abajo).
+- Validar `git clone` desde el remoto en un directorio limpio.
 
 ## Documentos de gobierno vigentes
 

@@ -23,3 +23,27 @@ repositorio, solo desde el historial de conversación.
 que se abran nuevos Sprints de contenido de gobierno.
 
 **Resolver en:** Sprint 002
+
+---
+
+## ISSUE-002
+
+**Tipo:** STD
+
+**Detectado en:** Sprint 001 (validación real en Termux)
+
+**Descripción:**
+`git init` en el dispositivo usó `master` como rama por defecto (Git
+no tenía `init.defaultBranch` configurado). No existe una decisión
+constitucional sobre el nombre de la rama principal del repositorio
+(`main` vs `master`).
+
+**Impacto:**
+Bajo, pero afecta consistencia si se automatizan workflows de GitHub
+Actions o scripts que asuman un nombre de rama específico.
+
+**Prioridad:** Baja
+
+**Resolver en:** Sprint 002 (definir como parte de un HER-STD de
+convenciones de Git, o adoptar `main` explícitamente antes del primer
+`git push`).
