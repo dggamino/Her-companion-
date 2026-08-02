@@ -6,7 +6,7 @@ pytest.importorskip("fastapi")
 
 from datetime import UTC, datetime
 
-from httpx import AsyncClient
+from fastapi.testclient import TestClient
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -16,10 +16,9 @@ from her_core.models import Expediente
 
 
 @pytest.fixture
-async def async_client():
-    """Cliente HTTP async para tests."""
-    async with AsyncClient(app=app, base_url="http://test") as client:
-        yield client
+def client():
+    """Cliente HTTP síncrono para tests de FastAPI."""
+    return TestClient(app)
 
 
 @pytest.fixture
@@ -49,9 +48,9 @@ async def db_session():
 class TestHealth:
     """Tests para el endpoint de health check."""
 
-    async def test_health(self, async_client: AsyncClient) -> None:
+    def test_health(self, client: TestClient) -> None:
         """El endpoint health responde correctamente."""
-        response = await async_client.get("/health")
+        response = client.get("/health")
         assert response.status_code == 200
         data = response.json()
         assert data["status"] == "ok"
@@ -61,11 +60,11 @@ class TestHealth:
 class TestExpedientesAPI:
     """Tests para endpoints CRUD de expedientes."""
 
-    async def test_crear_expediente(
-        self, async_client: AsyncClient, db_session: AsyncSession
+    def test_crear_expediente(
+        self, client: TestClient, db_session: AsyncSession
     ) -> None:
         """Se puede crear un expediente via API."""
-        response = await async_client.post(
+        response = client.post(
             "/api/v1/expedientes",
             json={
                 "id": "EXP-API-001",
@@ -78,45 +77,52 @@ class TestExpedientesAPI:
         assert data["id"] == "EXP-API-001"
         assert data["direccion"] == "Calle API 123"
 
-    async def test_obtener_expediente(
-        self, async_client: AsyncClient, db_session: AsyncSession
+    def test_obtener_expediente(
+        self, client: TestClient, db_session: AsyncSession
     ) -> None:
         """Se puede obtener un expediente por ID."""
-        exp = Expediente(
-            id="EXP-API-002",
-            direccion="Avenida API 456",
-            created_at=datetime.now(UTC),
-        )
-        db_session.add(exp)
-        await db_session.commit()
+        # Crear primero
+        import asyncio
+        async def create():
+            exp = Expediente(
+                id="EXP-API-002",
+                direccion="Avenida API 456",
+                created_at=datetime.now(UTC),
+            )
+            db_session.add(exp)
+            await db_session.commit()
+        asyncio.run(create())
 
-        response = await async_client.get("/api/v1/expedientes/EXP-API-002")
+        response = client.get("/api/v1/expedientes/EXP-API-002")
         assert response.status_code == 200
         data = response.json()
         assert data["id"] == "EXP-API-002"
         assert data["direccion"] == "Avenida API 456"
 
-    async def test_obtener_expediente_no_existe(
-        self, async_client: AsyncClient, db_session: AsyncSession
+    def test_obtener_expediente_no_existe(
+        self, client: TestClient, db_session: AsyncSession
     ) -> None:
         """Obtener expediente inexistente devuelve 404."""
-        response = await async_client.get("/api/v1/expedientes/NO-EXISTE")
+        response = client.get("/api/v1/expedientes/NO-EXISTE")
         assert response.status_code == 404
 
-    async def test_listar_expedientes(
-        self, async_client: AsyncClient, db_session: AsyncSession
+    def test_listar_expedientes(
+        self, client: TestClient, db_session: AsyncSession
     ) -> None:
         """Se pueden listar todos los expedientes."""
-        for i in range(2):
-            exp = Expediente(
-                id=f"EXP-API-LIST-{i}",
-                direccion=f"Direccion {i}",
-                created_at=datetime.now(UTC),
-            )
-            db_session.add(exp)
-        await db_session.commit()
+        import asyncio
+        async def create():
+            for i in range(2):
+                exp = Expediente(
+                    id=f"EXP-API-LIST-{i}",
+                    direccion=f"Direccion {i}",
+                    created_at=datetime.now(UTC),
+                )
+                db_session.add(exp)
+            await db_session.commit()
+        asyncio.run(create())
 
-        response = await async_client.get("/api/v1/expedientes")
+        response = client.get("/api/v1/expedientes")
         assert response.status_code == 200
         data = response.json()
         assert len(data) == 2
