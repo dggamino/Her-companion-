@@ -34,9 +34,11 @@ async def db_session():
         async with test_session() as session:
             yield session
 
-    from her_api.routers.expedientes import get_db
+    from her_api.routers.expedientes import get_db as get_db_expedientes
+    from her_api.routers.webhooks import get_db as get_db_webhooks
 
-    app.dependency_overrides[get_db] = override_get_db
+    app.dependency_overrides[get_db_expedientes] = override_get_db
+    app.dependency_overrides[get_db_webhooks] = override_get_db
 
     async with test_session() as session:
         yield session
@@ -113,9 +115,9 @@ class TestWebhookWaha:
         assert response.status_code == 400
 
     def test_webhook_payload_invalido(self, client: TestClient, db_session: AsyncSession) -> None:
-        """Payload que no es JSON válido devuelve 400/422."""
+        """Payload que no es JSON válido devuelve 422."""
         response = client.post(
             "/api/v1/webhooks/waha",
-            data="no es json",
+            content="no es json",
         )
-        assert response.status_code in (400, 422)
+        assert response.status_code == 422
