@@ -96,7 +96,9 @@ class TestExpedientesAPI:
         assert data["id"] == "EXP-API-002"
         assert data["direccion"] == "Avenida API 456"
 
-    def test_obtener_expediente_no_existe(self, client: TestClient, db_session: AsyncSession) -> None:
+    def test_obtener_expediente_no_existe(
+        self, client: TestClient, db_session: AsyncSession
+    ) -> None:
         """Obtener expediente inexistente devuelve 404."""
         response = client.get("/api/v1/expedientes/NO-EXISTE")
         assert response.status_code == 404
