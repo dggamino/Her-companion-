@@ -60,9 +60,7 @@ class TestHealth:
 class TestExpedientesAPI:
     """Tests para endpoints CRUD de expedientes."""
 
-    def test_crear_expediente(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_crear_expediente(self, client: TestClient, db_session: AsyncSession) -> None:
         """Se puede crear un expediente via API."""
         response = client.post(
             "/api/v1/expedientes",
@@ -77,12 +75,10 @@ class TestExpedientesAPI:
         assert data["id"] == "EXP-API-001"
         assert data["direccion"] == "Calle API 123"
 
-    def test_obtener_expediente(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_obtener_expediente(self, client: TestClient, db_session: AsyncSession) -> None:
         """Se puede obtener un expediente por ID."""
-        # Crear primero
         import asyncio
+
         async def create():
             exp = Expediente(
                 id="EXP-API-002",
@@ -91,6 +87,7 @@ class TestExpedientesAPI:
             )
             db_session.add(exp)
             await db_session.commit()
+
         asyncio.run(create())
 
         response = client.get("/api/v1/expedientes/EXP-API-002")
@@ -99,18 +96,15 @@ class TestExpedientesAPI:
         assert data["id"] == "EXP-API-002"
         assert data["direccion"] == "Avenida API 456"
 
-    def test_obtener_expediente_no_existe(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_obtener_expediente_no_existe(self, client: TestClient, db_session: AsyncSession) -> None:
         """Obtener expediente inexistente devuelve 404."""
         response = client.get("/api/v1/expedientes/NO-EXISTE")
         assert response.status_code == 404
 
-    def test_listar_expedientes(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_listar_expedientes(self, client: TestClient, db_session: AsyncSession) -> None:
         """Se pueden listar todos los expedientes."""
         import asyncio
+
         async def create():
             for i in range(2):
                 exp = Expediente(
@@ -120,6 +114,7 @@ class TestExpedientesAPI:
                 )
                 db_session.add(exp)
             await db_session.commit()
+
         asyncio.run(create())
 
         response = client.get("/api/v1/expedientes")
