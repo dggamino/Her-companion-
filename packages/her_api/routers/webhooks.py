@@ -1,6 +1,7 @@
 """Router para webhooks de integraciones externas (WAHA)."""
 
 from collections.abc import AsyncGenerator
+
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
