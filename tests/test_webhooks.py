@@ -48,9 +48,7 @@ async def db_session():
 class TestWebhookWaha:
     """Tests para el webhook de WAHA."""
 
-    def test_webhook_crear_expediente(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_webhook_crear_expediente(self, client: TestClient, db_session: AsyncSession) -> None:
         """Un mensaje de WAHA crea un nuevo expediente."""
         response = client.post(
             "/api/v1/webhooks/waha",
@@ -73,7 +71,6 @@ class TestWebhookWaha:
         self, client: TestClient, db_session: AsyncSession
     ) -> None:
         """Un segundo mensaje del mismo número actualiza el expediente."""
-        # Crear expediente previo
         import asyncio
 
         async def create():
@@ -104,9 +101,7 @@ class TestWebhookWaha:
         data = response.json()
         assert data["status"] == "ok"
 
-    def test_webhook_datos_incompletos(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_webhook_datos_incompletos(self, client: TestClient, db_session: AsyncSession) -> None:
         """Payload sin teléfono o mensaje devuelve 400."""
         response = client.post(
             "/api/v1/webhooks/waha",
@@ -117,9 +112,7 @@ class TestWebhookWaha:
         )
         assert response.status_code == 400
 
-    def test_webhook_payload_invalido(
-        self, client: TestClient, db_session: AsyncSession
-    ) -> None:
+    def test_webhook_payload_invalido(self, client: TestClient, db_session: AsyncSession) -> None:
         """Payload que no es JSON válido devuelve 400/422."""
         response = client.post(
             "/api/v1/webhooks/waha",
