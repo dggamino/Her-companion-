@@ -37,7 +37,8 @@ jobs:
             governance/issues/SPRINT-005.md \
             governance/issues/SPRINT-006.md \
             governance/issues/SPRINT-007.md \
-            governance/issues/SPRINT-008.md
+            governance/issues/SPRINT-008.md \
+            governance/issues/SPRINT-009.md
           do
             if [ -f "$file" ]; then
               echo "  ✅ $file"
@@ -63,7 +64,7 @@ jobs:
       - name: Check for broken internal links
         run: |
           echo "=== Checking internal references ==="
-          grep -r "HER-ADR-007\|HER-ADR-009" \
+          grep -r "HER-ADR-007\\|HER-ADR-009" \
             governance/adr/ \
             governance/rfc/ \
             governance/std/ \

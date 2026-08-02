@@ -1,8 +1,10 @@
 # HEREDITARIA-OS — requirements-dev.txt
 # Dependencias de desarrollo compatibles con Termux
 # Uso: pip install -e ".[dev]"
-#
-# mypy y ruff no están incluidos porque requieren Rust en Termux/aarch64.
-# En CI se instalan por separado. En Termux: pkg install mypy ruff
 
 pytest>=8.0
+pytest-asyncio>=0.23
+alembic>=1.13
+
+# mypy y ruff no están incluidos porque requieren Rust en Termux/aarch64.
+# En CI se instalan por separado. En Termux: pkg install mypy ruff

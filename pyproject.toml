@@ -7,21 +7,28 @@ name = "hereditaria-os"
 version = "0.1.0"
 description = "HEREDITARIA™ OS — Sistema operativo de bienestar inmobiliario"
 requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy[asyncio]>=2.0",
+    "aiosqlite>=0.19",
+]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "alembic>=1.13",
 ]
 # Nota: mypy y ruff se instalan por separado en CI (Ubuntu).
 # En Termux: pkg install mypy ruff  (o omitir, CI las valida)
 
 [tool.setuptools]
-packages = ["her_models"]
+packages = ["her_models", "her_core"]
 package-dir = {"" = "packages"}
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
+asyncio_mode = "auto"
 
 [tool.ruff]
 target-version = "py311"
@@ -30,4 +37,4 @@ line-length = 100
 [tool.mypy]
 python_version = "3.11"
 strict = true
-packages = ["packages.her_models"]
+packages = ["her_models", "her_core"]

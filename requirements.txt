@@ -1,6 +1,8 @@
 # HEREDITARIA-OS — requirements.txt
-# Sprint 007: dependencias de runtime
-# (dev tools en pyproject.toml [project.optional-dependencies])
+# Sprint 009: dependencias de runtime
+
+sqlalchemy[asyncio]>=2.0
+aiosqlite>=0.19
 
 # Restricción vigente (HER-STD-0001):
 # toda dependencia debe ser instalable en Termux sin compilación nativa compleja.
