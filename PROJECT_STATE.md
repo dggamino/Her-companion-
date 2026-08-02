@@ -1,7 +1,7 @@
 # PROJECT_STATE
 
 Última actualización: 2026-08-01
-Sprint activo: SPRINT 011
+Sprint activo: SPRINT 012
 Estado general: Execution Mode
 
 ## Fase
@@ -76,16 +76,33 @@ Integrar recepción de mensajes WhatsApp via webhooks.
 ### Alcance
 - [x] ISSUE-018: Webhook WAHA + procesador de mensajes + tests
 
+### Criterios de éxito
+- [x] CI verde con tests de webhook
+- [x] Tests pasan localmente
+
+## Sprint 012 — Lógica de Negocio y Workflow
+
+### Objetivo
+Implementar estados de expediente, agentes y workflow.
+
+### Alcance
+- [x] ISSUE-019: Estados de expediente + agentes + transiciones + tests
+
 ### Artefactos
-- `packages/her_api/routers/webhooks.py`
-- `packages/her_api/services/whatsapp.py`
-- `tests/test_webhooks.py`
+- `packages/her_core/models.py` (actualizado)
+- `packages/her_api/services/workflow.py`
+- `packages/her_api/routers/agentes.py`
+- `tests/test_workflow.py`
+- `tests/test_agentes.py`
 
 ### Endpoints nuevos
-- `POST /api/v1/webhooks/waha` — Recibe mensajes de WhatsApp
+- `POST /api/v1/agentes` — Crear agente
+- `GET /api/v1/agentes/{id}` — Obtener agente
+- `GET /api/v1/agentes` — Listar agentes
+- `PUT /api/v1/expedientes/{id}` — Actualizar expediente (estado, agente)
 
 ### Criterios de éxito
-- [ ] CI verde con tests de webhook
+- [ ] CI verde con tests de workflow y agentes
 - [ ] Tests pasan localmente
 
 ## Documentos vigentes (17)
@@ -108,9 +125,9 @@ Integrar recepción de mensajes WhatsApp via webhooks.
 
 ## Issues abiertos
 
-- ISSUE-015: Desalineación DRY CI/local (Sprint 012+)
+- ISSUE-015: Desalineación DRY CI/local (Sprint 013+)
 
 ## Próximo sprint
 
-SPRINT 012 — Lógica de negocio y workflow inmobiliario.
-Recomendado: Estados de expediente, asignación a agentes, notificaciones.
+SPRINT 013 — Dashboard y reporting.
+Recomendado: Endpoints de agregación, filtros por estado/agente, métricas.

@@ -7,7 +7,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from her_api.schemas import ExpedienteCreate, ExpedienteResponse
+from her_api.schemas import ExpedienteCreate, ExpedienteResponse, ExpedienteUpdate
+from her_api.services.workflow import TransicionInvalidaError, asignar_agente, cambiar_estado
 from her_core.database import async_session
 from her_core.models import Expediente
 
@@ -61,3 +62,34 @@ async def listar_expedientes(
     """Lista todos los expedientes."""
     result = await db.execute(select(Expediente))
     return list(result.scalars().all())
+
+
+@router.put("/{expediente_id}", response_model=ExpedienteResponse)
+async def actualizar_expediente(
+    expediente_id: str,
+    data: ExpedienteUpdate,
+    db: AsyncSession = Depends(get_db),
+) -> Expediente:
+    """Actualiza un expediente (estado, agente, observaciones)."""
+    exp = await db.get(Expediente, expediente_id)
+    if exp is None:
+        raise HTTPException(status_code=404, detail="Expediente no encontrado")
+
+    if data.estado is not None:
+        try:
+            await cambiar_estado(db, exp, data.estado)
+        except TransicionInvalidaError as e:
+            raise HTTPException(status_code=400, detail=str(e)) from e
+
+    if data.agente_id is not None:
+        await asignar_agente(db, exp, data.agente_id)
+
+    if data.direccion is not None:
+        exp.direccion = data.direccion
+
+    if data.observaciones is not None:
+        exp.observaciones = data.observaciones
+
+    await db.commit()
+    await db.refresh(exp)
+    return exp

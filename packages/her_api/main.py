@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from her_api.routers.agentes import router as agentes_router
 from her_api.routers.expedientes import router as expedientes_router
 from her_api.routers.webhooks import router as webhooks_router
 from her_api.schemas import HealthResponse
@@ -33,4 +34,5 @@ async def health() -> HealthResponse:
 
 
 app.include_router(expedientes_router)
+app.include_router(agentes_router)
 app.include_router(webhooks_router)
