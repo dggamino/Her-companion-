@@ -1,7 +1,7 @@
 # PROJECT_STATE
 
 Última actualización: 2026-08-01
-Sprint activo: SPRINT 010
+Sprint activo: SPRINT 011
 Estado general: Execution Mode
 
 ## Fase
@@ -62,15 +62,30 @@ Implementar persistencia real con SQLAlchemy 2.0 async.
 Implementar API REST con endpoints CRUD.
 
 ### Alcance
-- [x] ISSUE-017: FastAPI + endpoints CRUD Expediente + tests integración
-
-### Artefactos
-- `packages/her_api/`
-- `tests/test_her_api.py`
-- `GET /health`, `POST /api/v1/expedientes`, `GET /api/v1/expedientes/{id}`, `GET /api/v1/expedientes`
+- [x] ISSUE-017: FastAPI CRUD endpoints + tests integración
 
 ### Criterios de éxito
-- [ ] CI verde con tests de API
+- [x] CI verde con tests de API
+- [x] Tests pasan localmente
+
+## Sprint 011 — WhatsApp Integration (WAHA)
+
+### Objetivo
+Integrar recepción de mensajes WhatsApp via webhooks.
+
+### Alcance
+- [x] ISSUE-018: Webhook WAHA + procesador de mensajes + tests
+
+### Artefactos
+- `packages/her_api/routers/webhooks.py`
+- `packages/her_api/services/whatsapp.py`
+- `tests/test_webhooks.py`
+
+### Endpoints nuevos
+- `POST /api/v1/webhooks/waha` — Recibe mensajes de WhatsApp
+
+### Criterios de éxito
+- [ ] CI verde con tests de webhook
 - [ ] Tests pasan localmente
 
 ## Documentos vigentes (17)
@@ -93,9 +108,9 @@ Implementar API REST con endpoints CRUD.
 
 ## Issues abiertos
 
-- ISSUE-015: Desalineación DRY CI/local (Sprint 011+)
+- ISSUE-015: Desalineación DRY CI/local (Sprint 012+)
 
 ## Próximo sprint
 
-SPRINT 011 — Integración con WhatsApp (WAHA).
-Recomendado: Webhook receptor para mensajes entrantes, mapeo a expedientes.
+SPRINT 012 — Lógica de negocio y workflow inmobiliario.
+Recomendado: Estados de expediente, asignación a agentes, notificaciones.
