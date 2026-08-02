@@ -2,6 +2,8 @@
 
 from datetime import UTC, datetime
 
+from collections.abc import AsyncGenerator
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -13,7 +15,7 @@ from her_core.models import Expediente
 router = APIRouter(prefix="/api/v1/expedientes", tags=["expedientes"])
 
 
-async def get_db() -> AsyncSession:
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
     """Dependency para obtener sesión de base de datos."""
     async with async_session() as session:
         yield session
