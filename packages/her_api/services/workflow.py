@@ -4,7 +4,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from her_core.models import EstadoExpediente, Expediente
 
-
 TRANSICIONES_VALIDAS: dict[str, set[str]] = {
     EstadoExpediente.NUEVO.value: {
         EstadoExpediente.EN_PROCESO.value,
