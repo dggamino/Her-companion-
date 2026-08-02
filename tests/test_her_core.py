@@ -70,7 +70,7 @@ class TestExpedienteORM:
 
         result = await db_session.get(Expediente, "EXP-ORM-003")
         assert result is not None
-        assert result.resumen() == "[EXP-ORM-003] Plaza Mayor 1"
+        assert result.resumen() == "[EXP-ORM-003] Plaza Mayor 1 (nuevo)"
 
     async def test_resumen_con_observaciones(self, db_session: AsyncSession) -> None:
         """El resumen incluye observaciones cuando existen."""
