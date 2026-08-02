@@ -1,5 +1,7 @@
 """Router CRUD para expedientes."""
 
+from datetime import UTC, datetime
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -23,7 +25,6 @@ async def crear_expediente(
     db: AsyncSession = Depends(get_db),
 ) -> Expediente:
     """Crea un nuevo expediente."""
-    # Verificar si ya existe
     result = await db.get(Expediente, data.id)
     if result is not None:
         raise HTTPException(status_code=409, detail="Expediente ya existe")
@@ -32,7 +33,7 @@ async def crear_expediente(
         id=data.id,
         direccion=data.direccion,
         observaciones=data.observaciones,
-        created_at=data.created_at if hasattr(data, "created_at") else __import__("datetime").datetime.now(__import__("datetime").UTC),
+        created_at=datetime.now(UTC),
     )
     db.add(exp)
     await db.commit()

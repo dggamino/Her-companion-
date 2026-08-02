@@ -29,14 +29,16 @@ async def db_session():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-    test_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+    test_session = sessionmaker(
+        engine, class_=AsyncSession, expire_on_commit=False
+    )
 
-    # Override dependency
     async def override_get_db():
         async with test_session() as session:
             yield session
 
     from her_api.routers.expedientes import get_db
+
     app.dependency_overrides[get_db] = override_get_db
 
     async with test_session() as session:
@@ -61,7 +63,9 @@ class TestHealth:
 class TestExpedientesAPI:
     """Tests para endpoints CRUD de expedientes."""
 
-    async def test_crear_expediente(self, async_client: AsyncClient, db_session: AsyncSession) -> None:
+    async def test_crear_expediente(
+        self, async_client: AsyncClient, db_session: AsyncSession
+    ) -> None:
         """Se puede crear un expediente via API."""
         response = await async_client.post(
             "/api/v1/expedientes",
@@ -76,9 +80,10 @@ class TestExpedientesAPI:
         assert data["id"] == "EXP-API-001"
         assert data["direccion"] == "Calle API 123"
 
-    async def test_obtener_expediente(self, async_client: AsyncClient, db_session: AsyncSession) -> None:
+    async def test_obtener_expediente(
+        self, async_client: AsyncClient, db_session: AsyncSession
+    ) -> None:
         """Se puede obtener un expediente por ID."""
-        # Crear primero
         exp = Expediente(
             id="EXP-API-002",
             direccion="Avenida API 456",
@@ -93,14 +98,17 @@ class TestExpedientesAPI:
         assert data["id"] == "EXP-API-002"
         assert data["direccion"] == "Avenida API 456"
 
-    async def test_obtener_expediente_no_existe(self, async_client: AsyncClient, db_session: AsyncSession) -> None:
+    async def test_obtener_expediente_no_existe(
+        self, async_client: AsyncClient, db_session: AsyncSession
+    ) -> None:
         """Obtener expediente inexistente devuelve 404."""
         response = await async_client.get("/api/v1/expedientes/NO-EXISTE")
         assert response.status_code == 404
 
-    async def test_listar_expedientes(self, async_client: AsyncClient, db_session: AsyncSession) -> None:
+    async def test_listar_expedientes(
+        self, async_client: AsyncClient, db_session: AsyncSession
+    ) -> None:
         """Se pueden listar todos los expedientes."""
-        # Crear dos expedientes
         for i in range(2):
             exp = Expediente(
                 id=f"EXP-API-LIST-{i}",
