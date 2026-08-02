@@ -1,6 +1,6 @@
 """Router para webhooks de integraciones externas (WAHA)."""
 
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request
 
 from her_api.services.whatsapp import procesar_mensaje_entrante
 from her_core.database import async_session
