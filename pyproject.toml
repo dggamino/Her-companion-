@@ -34,6 +34,9 @@ asyncio_mode = "auto"
 target-version = "py311"
 line-length = 100
 
+[tool.ruff.lint.isort]
+known-first-party = ["her_core", "her_models"]
+
 [tool.mypy]
 python_version = "3.11"
 strict = true
