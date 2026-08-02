@@ -1,8 +1,7 @@
 """Router CRUD para expedientes."""
 
-from datetime import UTC, datetime
-
 from collections.abc import AsyncGenerator
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
