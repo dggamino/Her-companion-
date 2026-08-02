@@ -31,9 +31,7 @@ class Agente(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime)
 
     # Relación
-    expedientes: Mapped[list["Expediente"]] = relationship(
-        "Expediente", back_populates="agente"
-    )
+    expedientes: Mapped[list["Expediente"]] = relationship("Expediente", back_populates="agente")
 
 
 class Expediente(Base):
@@ -46,14 +44,10 @@ class Expediente(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime)
     observaciones: Mapped[str | None] = mapped_column(Text, nullable=True)
     estado: Mapped[str] = mapped_column(String(20), default=EstadoExpediente.NUEVO.value)
-    agente_id: Mapped[str | None] = mapped_column(
-        ForeignKey("agentes.id"), nullable=True
-    )
+    agente_id: Mapped[str | None] = mapped_column(ForeignKey("agentes.id"), nullable=True)
 
     # Relación
-    agente: Mapped[Agente | None] = relationship(
-        "Agente", back_populates="expedientes"
-    )
+    agente: Mapped[Agente | None] = relationship("Agente", back_populates="expedientes")
 
     def resumen(self) -> str:
         """Devuelve un resumen legible del expediente."""

@@ -39,9 +39,7 @@ async def cambiar_estado(
     estado_actual = expediente.estado
 
     if nuevo_estado not in TRANSICIONES_VALIDAS.get(estado_actual, set()):
-        raise TransicionInvalidaError(
-            f"Transición inválida: {estado_actual} -> {nuevo_estado}"
-        )
+        raise TransicionInvalidaError(f"Transición inválida: {estado_actual} -> {nuevo_estado}")
 
     expediente.estado = nuevo_estado
     await db.commit()
