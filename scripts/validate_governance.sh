@@ -30,7 +30,8 @@ for file in \
   governance/issues/SPRINT-006.md \
   governance/issues/SPRINT-007.md \
   governance/issues/SPRINT-008.md \
-  governance/issues/SPRINT-009.md
+  governance/issues/SPRINT-009.md \
+  governance/issues/SPRINT-010.md
 do
   if [ -f "$file" ]; then
     echo "  ✅ $file"

@@ -6,5 +6,6 @@ pytest>=8.0
 pytest-asyncio>=0.23
 alembic>=1.13
 
-# mypy y ruff no están incluidos porque requieren Rust en Termux/aarch64.
-# En CI se instalan por separado. En Termux: pkg install mypy ruff
+# fastapi y httpx no están incluidos porque requieren Rust en Termux/aarch64.
+# En CI se instalan via pip install -e ".[dev,api]".
+# En Termux: no disponible

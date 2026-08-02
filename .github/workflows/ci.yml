@@ -38,7 +38,8 @@ jobs:
             governance/issues/SPRINT-006.md \
             governance/issues/SPRINT-007.md \
             governance/issues/SPRINT-008.md \
-            governance/issues/SPRINT-009.md
+            governance/issues/SPRINT-009.md \
+            governance/issues/SPRINT-010.md
           do
             if [ -f "$file" ]; then
               echo "  ✅ $file"
@@ -84,7 +85,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -e ".[dev]"
+          pip install -e ".[dev,api]"
           pip install "mypy>=1.8" "ruff>=0.4"
 
       - name: Lint with ruff

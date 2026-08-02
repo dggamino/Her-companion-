@@ -1,7 +1,7 @@
 # PROJECT_STATE
 
 Última actualización: 2026-08-01
-Sprint activo: SPRINT 009
+Sprint activo: SPRINT 010
 Estado general: Execution Mode
 
 ## Fase
@@ -52,14 +52,25 @@ Implementar persistencia real con SQLAlchemy 2.0 async.
 ### Alcance
 - [x] ISSUE-016: SQLAlchemy 2.0 + Alembic + tests ORM
 
+### Criterios de éxito
+- [x] CI verde con tests ORM
+- [x] Tests pasan localmente
+
+## Sprint 010 — API FastAPI
+
+### Objetivo
+Implementar API REST con endpoints CRUD.
+
+### Alcance
+- [x] ISSUE-017: FastAPI + endpoints CRUD Expediente + tests integración
+
 ### Artefactos
-- `packages/her_core/`
-- `packages/her_core/alembic/`
-- `tests/test_her_core.py`
-- `data/` (directorio para SQLite)
+- `packages/her_api/`
+- `tests/test_her_api.py`
+- `GET /health`, `POST /api/v1/expedientes`, `GET /api/v1/expedientes/{id}`, `GET /api/v1/expedientes`
 
 ### Criterios de éxito
-- [ ] CI verde con tests ORM
+- [ ] CI verde con tests de API
 - [ ] Tests pasan localmente
 
 ## Documentos vigentes (17)
@@ -82,9 +93,9 @@ Implementar persistencia real con SQLAlchemy 2.0 async.
 
 ## Issues abiertos
 
-- ISSUE-015: Desalineación DRY CI/local (Sprint 010+)
+- ISSUE-015: Desalineación DRY CI/local (Sprint 011+)
 
 ## Próximo sprint
 
-SPRINT 010 — Implementación de API FastAPI.
-Recomendado: Endpoints CRUD para Expediente, integración con her_core.
+SPRINT 011 — Integración con WhatsApp (WAHA).
+Recomendado: Webhook receptor para mensajes entrantes, mapeo a expedientes.

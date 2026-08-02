@@ -18,11 +18,15 @@ dev = [
     "pytest-asyncio>=0.23",
     "alembic>=1.13",
 ]
+api = [
+    "fastapi>=0.110",
+    "httpx>=0.27",
+]
 # Nota: mypy y ruff se instalan por separado en CI (Ubuntu).
 # En Termux: pkg install mypy ruff  (o omitir, CI las valida)
 
 [tool.setuptools]
-packages = ["her_models", "her_core"]
+packages = ["her_models", "her_core", "her_api"]
 package-dir = {"" = "packages"}
 
 [tool.pytest.ini_options]
@@ -35,9 +39,9 @@ target-version = "py311"
 line-length = 100
 
 [tool.ruff.lint.isort]
-known-first-party = ["her_core", "her_models"]
+known-first-party = ["her_core", "her_models", "her_api"]
 
 [tool.mypy]
 python_version = "3.11"
 strict = true
-packages = ["her_models", "her_core"]
+packages = ["her_models", "her_core", "her_api"]

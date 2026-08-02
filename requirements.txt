@@ -1,8 +1,11 @@
 # HEREDITARIA-OS — requirements.txt
-# Sprint 009: dependencias de runtime
+# Sprint 010: dependencias de runtime
 
 sqlalchemy[asyncio]>=2.0
 aiosqlite>=0.19
+
+# fastapi se instala por separado en CI o via pip install -e ".[api]"
+# En Termux: no disponible (requiere Rust/pydantic-core)
 
 # Restricción vigente (HER-STD-0001):
 # toda dependencia debe ser instalable en Termux sin compilación nativa compleja.
