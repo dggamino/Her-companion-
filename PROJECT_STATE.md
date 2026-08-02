@@ -1,7 +1,7 @@
 # PROJECT_STATE
 
-Última actualización: 2026-08-01
-Sprint activo: SPRINT 007
+Ultima actualizacion: 2026-08-01
+Sprint activo: SPRINT 008
 Estado general: Execution Mode
 
 ## Fase
@@ -11,66 +11,70 @@ Estado general: Execution Mode
 ## Sprint 006 — CI GitHub Actions
 
 ### Objetivo
-Establecer validación continua del repositorio.
+Establecer validacion continua.
 
 ### Alcance
-- [x] ISSUE-012: Crear pipeline CI (`.github/workflows/ci.yml`)
-- [x] ISSUE-014: Materializar HER-STD-0006 — Definition of Done
-- [x] Hotfix: corregir scope de link-check en CI
+- [x] ISSUE-012: Pipeline CI
+- [x] ISSUE-014: HER-STD-0006 Definition of Done
 
-### Artefactos
-- `.github/workflows/ci.yml`
-- `scripts/validate_governance.sh`
-- `governance/std/HER-STD-0006.md`
-- `governance/issues/SPRINT-006.md`
+### Criterios de exito
+- [x] CI verde
 
-### Criterios de éxito
-- [x] Commit y push a main
-- [x] CI verde en GitHub Actions
-
-## Sprint 007 — Activación de Python
+## Sprint 007 — Activacion de Python
 
 ### Objetivo
-Bootstrap del primer código Python con validación de calidad.
+Bootstrap primer codigo Python.
 
 ### Alcance
 - [x] ISSUE-013: Activar python-placeholder con tests reales
-- [ ] ISSUE-005: Decisión ADR migración DB (contexto pendiente)
-- [ ] ISSUE-006: Decisión RFC API framework (contexto pendiente)
+
+### Criterios de exito
+- [x] CI verde con job python
+- [x] Tests pasan localmente
+
+## Sprint 008 — Arquitectura de Persistencia y API
+
+### Objetivo
+Materializar decisiones arquitectonicas pendientes.
+
+### Alcance
+- [x] ISSUE-005: ADR DB — SQLite + SQLAlchemy 2.0
+- [x] ISSUE-006: RFC API — FastAPI
+- [ ] ISSUE-015: Desalineacion DRY CI/local
 
 ### Artefactos
-- `pyproject.toml`
-- `packages/her_models/` (modelo Expediente)
-- `tests/test_her_models.py` (5 tests)
-- `requirements-dev.txt`
+- governance/adr/HER-ADR-0001.md
+- governance/rfc/HER-RFC-002.md
+- governance/issues/SPRINT-008.md
 
-### Criterios de éxito
-- [ ] CI verde con job `python` (ruff, mypy, pytest)
-- [ ] Tests pasan localmente
+### Criterios de exito
+- [ ] CI verde con nuevos documentos en validacion
+- [ ] Commit y push a main
 
-## Documentos vigentes (15)
+## Documentos vigentes (17)
 
-| Documento | Estado | Versión |
+| Documento | Estado | Version |
 |---|---|---|
 | HER-001 — Manifiesto | Aprobado | v1.0.0 |
 | HER-ADR-0000 — Repository as Product | Aprobado | v1.1 |
+| HER-ADR-0001 — Estrategia de Persistencia | Aprobado | v1.0.0 |
 | HER-RFC-001 — WhatsApp First Architecture | Aprobado | v1.0.0 |
+| HER-RFC-002 — Framework de API | Aprobado | v1.0.0 |
 | HER-STD-0001 — Repository Contract | Aprobado | v1.0 |
 | HER-STD-0002 — Sprint Freeze Rule | Aprobado | v1.0 |
 | HER-STD-0003 — Convenciones Git | Aprobado | v1.0.0 |
 | HER-STD-0004 — Context Snapshot Standard | Aprobado | v1.0.0 |
 | HER-STD-0005 — Definition of Ready | Aprobado | v1.0.0 |
 | HER-STD-0006 — Definition of Done | Aprobado | v1.0.0 |
-| HER-000 — Constitución | Aprobado | v1.0.1 |
+| HER-000 — Constitucion | Aprobado | v1.0.1 |
 | AR-2026-07-31-001 | Aprobada | — |
 
 ## Issues abiertos
 
-- ISSUE-005: Decisión migración DB (Sprint 006+)
-- ISSUE-006: Decisión API framework (Sprint 008+)
-- ISSUE-015: Desalineación DRY CI/local (Sprint 008+)
+- ISSUE-015: Desalineacion DRY CI/local (Sprint 009+)
 
-## Próximo sprint
+## Proximo sprint
 
-SPRINT 008 — a definir por el responsable.
-Recomendado: Resolver ISSUE-005 (ADR DB) o ISSUE-006 (RFC API) con contexto de implementación.
+SPRINT 009 — Implementacion de capa de persistencia.
+Recomendado: SQLAlchemy 2.0 + Alembic, modelo Expediente como SQLAlchemy model.
+Prerrequisitos cumplidos: ADR-0001 (DB), RFC-002 (API), STD-0005/0006 (Ready/Done).

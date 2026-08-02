@@ -12,18 +12,24 @@ for file in \
   governance/constitution.md \
   governance/decisions.md \
   governance/adr/HER-ADR-0000.md \
+  governance/adr/HER-ADR-0001.md \
   governance/rfc/HER-RFC-001.md \
+  governance/rfc/HER-RFC-002.md \
   governance/std/HER-STD-0001.md \
   governance/std/HER-STD-0002.md \
   governance/std/HER-STD-0003.md \
   governance/std/HER-STD-0004.md \
   governance/std/HER-STD-0005.md \
+  governance/std/HER-STD-0006.md \
   governance/resolutions/AR-2026-07-31-001.md \
   governance/issues/SPRINT-001.md \
   governance/issues/SPRINT-002.md \
   governance/issues/SPRINT-003.md \
   governance/issues/SPRINT-004.md \
-  governance/issues/SPRINT-005.md
+  governance/issues/SPRINT-005.md \
+  governance/issues/SPRINT-006.md \
+  governance/issues/SPRINT-007.md \
+  governance/issues/SPRINT-008.md
 do
   if [ -f "$file" ]; then
     echo "  ✅ $file"
