@@ -6,7 +6,6 @@ pytest.importorskip("fastapi")
 
 from datetime import UTC, datetime
 
-from fastapi.testclient import TestClient
 from httpx import AsyncClient
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
