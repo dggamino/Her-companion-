@@ -1,5 +1,6 @@
 """Router para webhooks de integraciones externas (WAHA)."""
 
+from collections.abc import AsyncGenerator
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -9,7 +10,7 @@ from her_core.database import async_session
 router = APIRouter(prefix="/api/v1/webhooks", tags=["webhooks"])
 
 
-async def get_db() -> AsyncSession:
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
     """Dependency para obtener sesión de base de datos."""
     async with async_session() as session:
         yield session
