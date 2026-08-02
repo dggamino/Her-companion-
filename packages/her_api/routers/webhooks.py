@@ -35,7 +35,7 @@ async def webhook_waha(
     """
     try:
         data = await request.json()
-    except Exception:
+    except ValueError:
         raise HTTPException(status_code=422, detail="JSON inválido")
 
     payload = data.get("payload", {})
