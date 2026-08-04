@@ -12,6 +12,36 @@ from her_api.services.workflow import TransicionInvalidaError, asignar_agente, c
 from her_core.database import async_session
 from her_core.models import Expediente
 
+from typing import Optional
+from fastapi import Query
+from sqlalchemy import select, and_
+
+@router.get("/api/v1/expedientes")
+async def listar_expedientes(
+    estado: Optional[str] = Query(None, description="Filtrar por estado"),
+    agente_id: Optional[str] = Query(None, description="Filtrar por agente"),
+    direccion_contiene: Optional[str] = Query(None, description="Buscar en dirección"),
+    desde: Optional[str] = Query(None, description="Fecha inicio YYYY-MM-DD"),
+    hasta: Optional[str] = Query(None, description="Fecha fin YYYY-MM-DD"),
+    db: AsyncSession = Depends(get_db),
+):
+    """Listar expedientes con filtros opcionales."""
+    query = select(Expediente)
+
+    if estado:
+        query = query.where(Expediente.estado == estado)
+    if agente_id:
+        query = query.where(Expediente.agente_id == agente_id)
+    if direccion_contiene:
+        query = query.where(Expediente.direccion.ilike(f"%{direccion_contiene}%"))
+    if desde:
+        query = query.where(func.date(Expediente.creado_en) >= desde)
+    if hasta:
+        query = query.where(func.date(Expediente.creado_en) <= hasta)
+
+    result = await db.execute(query)
+    return result.scalars().all()
+
 router = APIRouter(prefix="/api/v1/expedientes", tags=["expedientes"])
 
 

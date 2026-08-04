@@ -4,6 +4,10 @@ from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from her_api.routers import dashboard
+
+# ... en la función que crea la app ...
+app.include_router(dashboard.router)
 
 from her_api.routers.agentes import router as agentes_router
 from her_api.routers.expedientes import router as expedientes_router
