@@ -18,8 +18,9 @@ La Cámara de Diputados aprobó en la madrugada del 7 de octubre de 2026 una ley
 
 ## Datos clave
 
-- Votación en lo general y en lo particular: 299 a favor y 92 en contra (El Universal, Yahoo, Milenio, NX Noticias). Una nota temprana del Heraldo de México reportó 324 y 107; se usa la cifra mayoritaria.
+- Votación en lo general: 324 a favor y 107 en contra (El Universal). Votación final en lo particular, con cambios: 299 a favor y 92 en contra (Milenio, NX Noticias, Sistema Mexiquense). Varios medios reportan solo la segunda cifra como si fuera la general.
 - Estado: aprobada en Cámara de Diputados; pendiente en el Senado (N+, 7-oct-2026).
+- Plazos reportados por el Heraldo de México: 90 días para que los congresos estatales armonicen sus leyes y plataformas operando a más tardar el 31-dic-2026. Por confirmar en el texto oficial.
 - Crea la Clave Única Catastral (identificador de cada inmueble, ligado a su Folio Real), la Cédula Única Catastral y Registral, y la Plataforma Nacional Catastral (Heraldo de México, N+).
 - Las plataformas operarían bajo lineamientos de Sedatu y de la Agencia de Transformación Digital y Telecomunicaciones (NX Noticias).
 - Postura oficialista (Morena, PT): el cobro del predial sigue siendo facultad municipal y la ley no fija un aumento de tasa (Yahoo Noticias).
