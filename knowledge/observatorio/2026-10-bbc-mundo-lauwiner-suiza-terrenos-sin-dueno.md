@@ -3,7 +3,7 @@ fuente_tipo: noticia
 medio: "BBC News Mundo"
 autor_original: "Norberto Paredes"
 fecha_publicacion: "2026-10-10"
-url: "PENDIENTE-VERIFICAR"
+url: "https://www.bbc.com/mundo/articles/cxyvzg95el1mo.amp"
 fuente_conocimiento_tier: "Observatorio"
 keywords_rfc001: ["CASA", "ESCRITURA"]
 relevancia_cuadrante: ["Congelado", "Calculador"]
