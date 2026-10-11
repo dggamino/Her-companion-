@@ -27,6 +27,16 @@ python3 scripts/validate_observatorio.py
   testamentos (España), relevante para Cuadrante Congelado/Planeador.
 - `2026-07-euronews-patrimonio-jovenes-europeos.md` — datos BCE/HFCS
   sobre patrimonio neto juvenil, contexto comparativo europeo.
+- `2026-04-elfinanciero-fraudes-inmobiliarios-mexico.md` — fraudes
+  inmobiliarios en México.
+- `2026-04-infobae-hijo-cuidador-herencia-mexico.md` — el hijo cuidador
+  y la herencia en México.
+- `2017-2026-jornada-unam-adultos-mayores-mexico.md` — situación de
+  adultos mayores en México (UNAM, La Jornada).
+- `2026-10-eluniversal-ley-catastral-registral.md` — aprobación en
+  Diputados de la ley catastral y registral; pendiente en el Senado.
+- `2026-10-bbc-mundo-lauwiner-suiza-terrenos-sin-dueno.md` — terrenos
+  sin dueño y vacío regulatorio (Suiza); caso de estudio de Cleptometría.
 
 ## Cómo se genera una entrada nueva
 
