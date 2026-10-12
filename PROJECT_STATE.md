@@ -1,6 +1,6 @@
 # PROJECT_STATE
 
-Última actualización: 2026-08-01
+Última actualización: 2026-10-11
 Sprint activo: SPRINT 012
 Estado general: Execution Mode
 
@@ -104,6 +104,16 @@ Implementar estados de expediente, agentes y workflow.
 ### Criterios de éxito
 - [ ] CI verde con tests de workflow y agentes
 - [ ] Tests pasan localmente
+
+## Actividad de conocimiento posterior al Sprint 012 (ago–oct 2026)
+
+Trabajo documental sin sprint formal, integrado a `main` vía PRs `docs/`. CI verde en las últimas ejecuciones.
+
+- 2026-08-02: Serie HEREDITARIA troceada en 53 capítulos con metadata RFC-001 (`knowledge/`).
+- 2026-08-02: HER-STD-0007 (External Source Ingestion) y primeras entradas del Observatorio (`knowledge/observatorio/`).
+- 2026-10-07: entrada Ley Catastral y Registral 2026; votación corregida (324-107 general, 299-92 particular) y plazos agregados.
+- 2026-10-10: casos Lauwiner/BBC Mundo (PRs #5 y #6); El Pensionario, ediciones 001 y 002 (PRs #7 y #8); índice del Observatorio actualizado a 7 entradas (PR #9).
+
 
 ## Documentos vigentes (17)
 
